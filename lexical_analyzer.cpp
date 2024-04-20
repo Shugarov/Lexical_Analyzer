@@ -98,9 +98,12 @@ lexical_analyzer::lexeme lexical_analyzer::next_lexeme() {
         result.lexeme_type = lexemeType::NUMBER; // Устанавливаем тип лексемы - число
         cur_ch = program_text[current_index]; // Получаем следующий символ
         while (current_index < program_text.size() && isdigit(cur_ch)) { // Пока символ - цифра
-            result.value += cur_ch; // Добавляем символ к значению лексемы
-            current_index++; // Переходим к следующему символу
-            cur_ch = program_text[current_index]; // Получаем следующий символ
+            //result.value += cur_ch; // Добавляем символ к значению лексемы
+            //current_index++; // Переходим к следующему символу
+            //cur_ch = program_text[current_index]; // Получаем следующий символ
+            result.value_int = result.value_int * 10 + (cur_ch - '0');
+            current_index++;
+            cur_ch = program_text[current_index];
         }
         // Проверяем наличие букв после числа (ошибка)
         if (current_index < program_text.size() && ischar(cur_ch)) {
