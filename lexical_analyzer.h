@@ -44,6 +44,7 @@ public:
     {
         lexemeType lexeme_type;
         string value;
+        int value_int;
         int line;
         int pos;
     };
@@ -61,4 +62,4 @@ private:
     string program_text;
     int current_index;
     vector<lexeme> data;
-}; #pragma once
+};
